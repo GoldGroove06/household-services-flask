@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Admin Dashboard</h2>
+        <div class="dash-container">
+            <div class="dash-div" onclick="location.href='admin/manage/cust' ">Manage Customers</div>
+            <div class="dash-div" onclick="location.href='admin/manage/serv' ">Manage Services</div>
+            <div class="dash-div" onclick="location.href='admin/manage/prof' ">Manage Professionals</div>
+        </div>
+    {% endblock %}
+
+{% block script %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dash.css') }}"> 
+{% endblock %}

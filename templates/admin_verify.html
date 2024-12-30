@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Verify Professional</h2>
+        Name: {{data.name}}<br>
+        Email: {{data.email}}<br>
+        Phone: {{data.phone}}<br>
+        Address: {{data.address}}<br>
+        Docs: <a href="/uploads/{{data.docs}}" target="_blank">Download</a><br>
+        <form action="/admin/verify/{{data.prof_id}}" method="post">
+          <input type="submit" value="Verify">
+        </form>
+        
+    {% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/admin_manage.js') }}"></script> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_manage.css') }}"> 
+{% endblock %}

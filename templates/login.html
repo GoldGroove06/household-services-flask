@@ -1,0 +1,26 @@
+<Doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/static/img/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action={{action}} method="POST">
+            <input type="email" name="email" placeholder="Email ID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% if not user== "admin" %}
+            <div class="signup-link">
+                <p>Don't have an account? <a href={{forward}}>Sign up here</a>.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+   
+

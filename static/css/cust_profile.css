@@ -1,0 +1,9 @@
+.ser-hist-div{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    justify-content: space-between;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 12px;
+}

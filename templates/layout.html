@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <title>{% block title %}  Household Services {% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+<body style="margin:10px">
+  <nav class="navbar navbar-expand-lg  " id= "navbar-id" >
+    <div class="container-fluid" >
+       
+        <span class="navbar-brand">Household Services</span>
+       
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              
+                   
+                   
+                   
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item login-button">
+                        <span class="nav-link">{{ current_user.name }}</span>
+                    </li> 
+                    {% if current_user.type == "cust" %}
+                        <li class="nav-item login-button">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item login-button">
+                            <a class="nav-link" href="/profile" ><i class="bi bi-box-arrow-in-left"></i> Profile</a>
+                        </li>  
+                    {% elif current_user.type == "prof" %}
+                        <li class="nav-item login-button">
+                            <a class="nav-link" href="/prof/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item login-button">
+                            <a class="nav-link" href="/prof/profile" ><i class="bi bi-box-arrow-in-left"></i> Profile</a>
+                        </li> 
+                    {% endif %} 
+                    
+                    
+                    <li class="nav-item login-button">
+                        <a class="nav-link" href="/logout" ><i class="bi bi-box-arrow-in-left"></i> Logout</a>
+                    </li>
+                                
+                    
+                    
+                    
+
+                    {% else %}
+                    
+              
+                    <li class="nav-item login-button">
+                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup"><i class="bi bi-person-fill"></i> Sign up as Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='/prof/signup'><i class="bi bi-person-fill"></i> Sign up as professional</a>
+                    </li>
+                    {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+    {% block script %}
+        {% endblock %}
+    
+</body>
+</html>

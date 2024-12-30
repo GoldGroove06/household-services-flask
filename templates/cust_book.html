@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+      <h2>Booking</h2>
+       <h4>Service: {{data.service_name}}</h4>
+       Package: {{data.package_name}}
+      Duration : {{data.duration}} hrs<br>
+      Price : ₹{{data.price}}
+      
+      <form action="/booking/{{package_id}}" method="post">
+        Select Data: <input type=date id="date" name="date" required><br>
+        <select id="time" required name="time" >
+            <option value="" disabled selected>Select Time</option>
+        </select><br>
+        Comments (optional): <input type="text" id="comments" name="comments"><br>
+        <input type="submit" value="Book">
+        
+      </form>
+      
+      
+
+  {% endblock %}
+
+  {% block script %}
+  
+  <script src="{{ url_for('static', filename='js/cust_book.js') }}"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cust_book.css') }}"> 
+  {% endblock %}

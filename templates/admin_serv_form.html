@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Service Form</h2>
+    <form action= '/admin/servform/add/{{method}}' method="post">
+            Service Name: <input type="text" name="serv_name" id = "serv_name" required><br>
+            <input type="hidden" value="{{city_name}}", name="city_name">
+            <input type="submit" value="Submit">
+        </form>
+
+    {% endblock %}
+
+{% block script %}
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_manage.css') }}"> 
+  
+{% endblock %}

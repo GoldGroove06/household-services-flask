@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Professional Management</h2>
+        <select name="city" id = "city" required>
+          <option value="" disabled selected>Select City</option>
+             {% for city in cities %}
+                 <option value="{{city}}">{{city}}</option>
+             {% endfor %}
+             
+         </select>
+         <input type="submit" value="Search" onclick="javascript:searchHandler('prof')">
+         <div id="searchResult"  class="inactive">
+          <h4>Active Users</h4>
+              <div id="active-users">
+                
+              </div>
+              <h4>Blocked Users</h4>
+              <div id="blocked-users">
+                
+              </div>
+         </div>
+        
+    {% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='js/admin_manage.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_manage.css') }}"> 
+{% endblock %}

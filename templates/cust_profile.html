@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block script %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cust_profile.css') }}"> 
+{% endblock %}
+    {% block body %}
+      <h2>Profile</h2>
+      <b>Name: </b> {{data.name}}<br>
+      <b>Email: </b> {{data.email}}<br>
+      <b>Phone: </b> {{data.phone}}<br>
+      <b>Address: </b> {{data.address}}<br><br>
+
+      <div style="position: absolute; right: 0;"> For any changes in profile, contact admin at admin@az.com</div>
+      <br>
+      <div class="ser-hist">
+      <h3>Service History</h3>
+      {% for service in data.history %}<br>
+        <div class="ser-hist-div">
+          <div>{{service.service_id}}</div>
+          <div>{{service.time}} {{service.date}}</div>
+          <div>{{service.package_name}}</div>
+          <div>{{service.price}}</div>
+          <div>{{service.duration}}</div>
+          <div>{{service.prof_name}}<br>{{service.phone}}<br>{{service.rating}}</div>
+          {% if service.status == "accepted" %}
+              <button onclick="location.href='/close/{{service.service_id}}'">Close it?</button>
+          
+          {% elif service.status == "requested"%}
+              <div>{{ service.status }}<br><br><button onclick="location.href='/bookedit/{{service.service_id}}'">Edit</button></div>
+          {% else %}
+              <div>{{ service.status }}</div>
+          
+          {% endif %}
+        </div>
+      {% endfor %}
+      </div>
+      
+      <div style="position: fixed; bottom:0; right: 0;">For any reports of fraud or concerns, contact admin at admin@az.com</div>
+  {% endblock %}

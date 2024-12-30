@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+      <h2>Booking</h2><br>
+      <h4>{{data.package_name}}</h4><br>
+      Price : ₹{{data.price}}<br>
+    Duration : {{data.duration}} hrs
+
+      <form action="/bookedit/{{data.service_uid}}" method="post">
+        Select Date and Time:<br><input type=date id="date" name="date" required><br>
+        <select id="time" required name="time" >
+            <option value="" disabled >Select Time</option>
+        </select><br>
+        Comments (optional): <input type="text" id="comments" name="comments"><br><br>
+        <input type="submit" value="Book">
+        
+      </form>
+      
+      
+
+  {% endblock %}
+
+  {% block script %}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const edit = "{{edit}}";
+    if (edit === "True") {
+        
+        document.querySelector("#time").value = "{{data.time}}"
+        document.querySelector("#date").value = "{{data.date}}"
+        document.querySelector("#comments").value = "{{data.comments}}"
+    }
+      
+    })
+    
+    
+    
+  </script>
+  <script src="{{ url_for('static', filename='js/cust_book.js') }}"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cust_book.css') }}"> 
+  {% endblock %}

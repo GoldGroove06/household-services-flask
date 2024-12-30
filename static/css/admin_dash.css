@@ -1,0 +1,14 @@
+.dash-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.dash-div{
+    display: flex;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    margin: 40px;
+    padding: 80px;
+    justify-content: center;
+}

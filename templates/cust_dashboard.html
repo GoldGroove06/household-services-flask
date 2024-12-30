@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+{% block title %} {{title}} {% endblock %}
+    {% block body %}
+      <form action="javascript:searchHandler()">
+        <label for="category">Category</label>
+        <select class="dropdown">
+          {% for category in categories %}
+              <option value="{{category['service_name']}}">{{category['service_name']}}</option>
+          {% endfor %}
+          </select>
+          <input type="submit" value="Submit">
+      </form>
+      <div id="pop-div" class="active">
+        <h2>Popular Services</h2>
+          <div class="pop-service-cat-cont">
+              {% for service in pop_services_list %}
+              <div class="pop-ser-cat" onclick="javascript:popSearchHandler(`{{service['serv-name']}}`)"><img src="{{service['serv-img']}}"><br>{{service['serv-name']}}</div>
+              {% endfor %}
+         
+          </div>
+      </div>
+      <div class="inactive" id="searchDiv">
+        <h2>Search Results</h2>
+        <div id="searchResult">
+          
+          
+        </div>
+      </div>
+     
+      
+      <div style="position: fixed; bottom:0; right: 0;">For any reports of fraud or concerns, contact admin at admin@az.com</div>
+  {% endblock %}
+
+{% block script %}
+
+<script src="{{ url_for('static', filename='js/cust_dashboard.js') }}"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cust_dashboard.css') }}"> 
+{% endblock %}

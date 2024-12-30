@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+    
+    
+      <p>
+        <h3>Our Services</h3>
+        We offer a variety of essential services to keep your home in perfect condition:
+        <br><br>
+        <img src="/static/img/clean.jpg" height="75px" width="75px" alt="Cleaning Services"><br>
+        <h5>Cleaning Services</h5>  
+        Our cleaning experts will ensure your home is sparkling clean, fresh, and inviting. We use eco-friendly products that are safe for your family and the environment.
+        <br><br>
+        <img src="/static/img/child.jpg" height="75px" width="75px" alt="Childcare Services"><br>
+        <h5>Childcare Services</h5>
+        Our skilled and licensed proffesionals provide reliable and nurturing childcare services, ensuring a safe, fun, and educational environment for your little ones while giving you peace of mind.
+        <br><br>
+        <img src="/static/img/lawn.jpg" height="75px" width="75px" alt="Lawn & Garden Care"><br>
+        <h5>Lawn & Garden Care</h5>
+        Keep your yard looking its best with our professional lawn and garden services. We offer mowing, trimming, weeding, and seasonal care to maintain a beautiful outdoor space.
+        <br><br>
+        <img src="/static/img/elecplumb.jpg" height="75px" width="75px" alt="Electrical & Plumbing Services"><br>
+        <h5>Electrical & Plumbing Services</h5>
+        We provide reliable electrical and plumbing services, from fixing a clogged drain to installing new wiring. Our licensed technicians are ready to assist with all your home improvement needs.
+      </p>
+      <p>And much more...</p>
+    </div>
+    {% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='js/prof_dashboard.js') }}"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/prof_dashboard.css') }}"> 
+{% endblock %}

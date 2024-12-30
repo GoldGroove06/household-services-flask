@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+
+        <h2>Open Services</h2>
+        <div class="open-service-cont">
+        {% for open in open_services %}
+            <div class="open-service-div">
+                <div>{{open.service_uid}}</div>
+                <div>{{open.package_name}}</div>
+                <div>{{open.time}}</div>
+                <div>{{open.date}}</div>
+                <div>{{open.price}}</div>
+                <div>{{open.location}}</div>
+                <div>{{open.description}}</div>
+                <div><button onclick="serviceHandler('{{open.service_uid}}', 'accepted' )"> Accept </button></div>
+
+            </div>
+        {% endfor %}
+        </div>
+
+        <h2>Active Services</h2>
+        {% for active in active_services %}
+            <div class="active-service-div">
+                <div>{{active.service_uid}}</div>
+                <div>{{active.package_name}}</div>
+                <div>{{active.time}}</div>
+                <div>{{active.date}}</div>
+                <div>{{active.price}}</div>
+                <div>{{active.location}}</div>
+                <div>{{active.description}}</div>
+                {% if active.status == "cust_closed" %}
+                    <div><button onclick="serviceHandler('{{active.service_uid}}', 'closed')"> Close </button></div>
+                {% endif %}
+               
+            </div>
+        {% endfor %}
+        <div style="position: fixed; bottom:0; right: 0;">For any reports of fraud or concerns, contact admin at admin@az.com</div>
+    {% endblock %}
+
+  {% block script %}
+  <script src="{{ url_for('static', filename='js/prof_dashboard.js') }}"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/prof_dashboard.css') }}"> 
+  {% endblock %}

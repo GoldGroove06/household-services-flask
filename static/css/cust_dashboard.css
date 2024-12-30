@@ -1,0 +1,69 @@
+#pop-div{
+    margin: 20px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+}
+
+.pop-service-cat-cont{
+    display: flex;
+    overflow-x: scroll;
+
+
+}
+
+.pop-ser-cat{
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 80px;
+    margin: 40px;
+}
+
+h2{
+    margin-left: 8px;
+}
+
+.all-service{
+    margin: 10px;
+}
+
+.service-cont{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.serv-cat-div{
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 80px;
+    margin: 40px;
+}
+
+.active{
+    display: block;
+}
+
+.inactive{
+    display: none;
+}
+
+.ser-pack{
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+
+    
+    
+
+}
+
+.ser-pack div {
+    flex:1
+}

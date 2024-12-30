@@ -1,0 +1,9 @@
+.open-service-div , .active-service-div{
+    display: flex;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}

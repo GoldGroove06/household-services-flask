@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Services Management</h2>
+        <select name="city" id = "city" required>
+            <option value="" disabled selected>Select City</option>
+               {% for city in cities %}
+                   <option value="{{city}}">{{city}}</option>
+               {% endfor %}
+                    
+         </select>
+         <input type="submit" value="Search" onclick="javascript:searchHandler('serv')">
+       
+       <div id="searchResult" class="inactive">
+            <h3>Services</h3><button onclick="newForm('serv')">Add Service</button>
+            <div id="servicesList">
+                
+                
+            </div>
+            <h3>Packages</h3><button onclick="newForm('pk')">Add Package</button>
+            <div id="packageList">
+                
+            </div>
+       </div>
+    {% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='js/admin_manage.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_manage.css') }}"> 
+{% endblock %}

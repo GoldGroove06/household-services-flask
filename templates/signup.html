@@ -1,0 +1,49 @@
+<Doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+        <link rel="icon" href="/static/img/logo.jpg" type="image/x-icon">
+        <title>{% block title %} {{user}} Signup {% endblock %}</title>
+    </head>
+
+    <div class="signup-container">
+        <h2>Sign Up as {{user}}</h2>
+        <form action={{action}} method="POST" enctype=multipart/form-data>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number"  minlength="10" maxlength= "10" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <br>
+            <select name="city" required>
+                <option value="" disabled selected>Select City</option>
+                {% for city in cities %}
+                    <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+            <!-- Change for prof role -->
+             {% if user == 'professional' %}
+                <br>                
+                <select name="service" required>
+                    <option value="" disabled selected>Select Service</option>
+                    {% for service in serv %}
+                        <option value="{{ service.service_name }}">{{ service.service_name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <!-- File upload field -->
+                <label for="document">Upload Document:</label>
+                <input type="file" name="file" required>
+            {% endif %}
+            <br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+              
+            <p>Already have an account? <a href='/login'>Log in here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

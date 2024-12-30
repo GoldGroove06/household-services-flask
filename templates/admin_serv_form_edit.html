@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Service Form</h2>
+    <form action= '/admin/servform/{{servid}}/{{method}}' method="post">
+            Service Name: <input type="text" name="serv_name" id = "serv_name" required value="{{serv_data.service_name}}"><br>
+           
+            <input type="submit" value="Submit">
+        </form>
+
+    {% endblock %}

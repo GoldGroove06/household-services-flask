@@ -1,0 +1,6 @@
+Jinja2
+Flask-Bootstrap
+Flask-RESTful
+flask-login
+
+

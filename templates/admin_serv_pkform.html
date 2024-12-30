@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+    {% block body %}
+        <h2>Package Form</h2>
+    <form action= '/admin/pkform/add/{{method}}' method="post">
+            Package Name: <input type="text" name="pk_name" id = "pk_name" required><br>
+           
+            Price: <input type="number" name="price" id = "price" required><br>
+            Duration: <select name="duration" id="duration" required >
+                <option value="" disabled selected hidden>Select Duration</option>
+                <option value="1">1 hour</option>
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4">4 hours</option>
+                <option value="5">5 hours</option>
+                <option value="6">6 hours</option>
+                <option value="7">7 hours</option>
+                <option value="8">8 hours</option>
+                <option value="9">9 hours</option>
+                <option value="10">10 hours</option>
+                <option value="11">11 hours</option>
+                <option value="12">12 hours</option>
+
+            </select><br>
+            
+            <select name="service" id="service" required >
+                <option value="" disabled selected hidden>Select Service</option>
+                {% for i in serv_list %}
+
+                    <option value={{i.service_name}}>{{i.service_name}}</option>
+                {% endfor %}
+            </select><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+
+    {% endblock %}
+
+{% block script %}
+  
+  <script src="{{ url_for('static', filename='js/admin_manage.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_manage.css') }}"> 
+  
+{% endblock %}
